@@ -17,8 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Container(
       height: h * 1,
       width: w * 1,
-      color: Colors.white,
+      color: const Color.fromARGB(255, 240, 240, 240),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             height: h * 0.26,
@@ -113,10 +114,266 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Text(
+              "available crops",
+              style: GoogleFonts.poppins(
+                  color: const Color.fromARGB(255, 71, 71, 71),
+                  fontWeight: FontWeight.w300,
+                  fontSize: 18),
+            ),
+          ),
+          Container(
+            height: h * 0.67,
+            margin: const EdgeInsets.only(left: 15, right: 20, top: 10),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    height: h * 0.3,
+                    width: w * 0.9,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: h * 0.2,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.circular(5),
+                              image: const DecorationImage(
+                                  image: NetworkImage(
+                                      "https://images.unsplash.com/photo-1529677987586-cb08849925dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTN8MjU3NDAxM3x8ZW58MHx8fHx8&w=1000&q=80"),
+                                  fit: BoxFit.cover),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 20, right: 20, top: 7),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Wheat Crops",
+                                    style: GoogleFonts.manrope(
+                                        color: const Color.fromARGB(
+                                            255, 0, 127, 4),
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 20),
+                                  ),
+                                  Text(
+                                    "Conditions of your wheat crops",
+                                    style: GoogleFonts.manrope(
+                                        color: const Color.fromARGB(
+                                            255, 49, 49, 49),
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 14),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 160, 255, 163),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.arrow_right,
+                                    color: Color.fromARGB(255, 50, 50, 50),
+                                    size: 40,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  ////////////////////////////////////////////////////////////////
+                  ///
+                  Container(
+                    height: h * 0.3,
+                    width: w * 0.9,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: h * 0.2,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.circular(5),
+                              image: const DecorationImage(
+                                  image: NetworkImage(
+                                      "https://foodtank.com/wp-content/uploads/2017/05/Food-Tank-SRI-Rice.jpg"),
+                                  fit: BoxFit.cover),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 20, right: 20, top: 7),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Rice Crops",
+                                    style: GoogleFonts.manrope(
+                                        color: const Color.fromARGB(
+                                            255, 0, 127, 4),
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 20),
+                                  ),
+                                  Text(
+                                    "Conditions of your wheat crops",
+                                    style: GoogleFonts.manrope(
+                                        color: const Color.fromARGB(
+                                            255, 49, 49, 49),
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 14),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 160, 255, 163),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.arrow_right,
+                                    color: Color.fromARGB(255, 50, 50, 50),
+                                    size: 40,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  /////////////////////////////////////
+                  ///
+                  ///
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    height: h * 0.3,
+                    width: w * 0.9,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: h * 0.2,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.circular(5),
+                              image: const DecorationImage(
+                                  image: NetworkImage(
+                                      "https://media.istockphoto.com/id/1308606393/photo/corn-field-in-agricultural-garden-and-light-shines-sunset.jpg?s=612x612&w=0&k=20&c=N6SJj8zZwZLQMLrDcFa6KtfTxQhhS9n3dpDhDT2hbMo="),
+                                  fit: BoxFit.cover),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 20, right: 20, top: 7),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Other Crops",
+                                    style: GoogleFonts.manrope(
+                                        color: const Color.fromARGB(
+                                            255, 0, 127, 4),
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 20),
+                                  ),
+                                  Text(
+                                    "Conditions of your wheat crops",
+                                    style: GoogleFonts.manrope(
+                                        color: const Color.fromARGB(
+                                            255, 49, 49, 49),
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 14),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 160, 255, 163),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.arrow_right,
+                                    color: Color.fromARGB(255, 50, 50, 50),
+                                    size: 40,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     ));
