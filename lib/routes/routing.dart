@@ -1,6 +1,7 @@
 import 'package:farmer/routes/route_name.dart';
 import 'package:farmer/view/home/home_screen.dart';
 import 'package:farmer/view/images/upload_image.dart';
+import 'package:farmer/view/res/result_screen.dart';
 import 'package:farmer/view/start/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,13 @@ Route<dynamic> onGenreateSettings(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) {
         dynamic data = settings.arguments as dynamic;
         return ClickCamera(cropType: data);
+      });
+    case RoutesNames.resultScreen:
+      return MaterialPageRoute(builder: (context) {
+        dynamic resData = settings.arguments as dynamic;
+        return ResultScreen(
+          resData: resData,
+        );
       });
     default:
       return MaterialPageRoute(builder: (context) {

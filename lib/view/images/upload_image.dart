@@ -1,6 +1,11 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:farmer/routes/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
 
 class ClickCamera extends StatefulWidget {
   final String cropType;
@@ -13,14 +18,29 @@ class ClickCamera extends StatefulWidget {
 class _ClickCameraState extends State<ClickCamera> {
   uploadImageFromCamera() async {
     try {
-      final result = await ImagePicker().pickImage(source: ImageSource.camera);
+      final result = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (result != null) {
-        print("image selected");
+        List<int> imageByte = File(result.path).readAsBytesSync();
+        dynamic imageData = base64Encode(imageByte);
+        debugPrint(imageData);
+        var response = await http.post(
+          Uri.parse(
+              "https://classify.roboflow.com/rice-detection-2-nkcu2/1?api_key=JNuQpEhF9KVKN7FzEXpc"),
+          body: jsonEncode(imageData),
+          headers: <String, String>{
+            "Content-type": "application/json",
+            "Accept": "application/json",
+          },
+        );
+        if (response.statusCode == 200) {
+          Navigator.pushNamed(context, RoutesNames.resultScreen,
+              arguments: response.body);
+        }
       } else {
-        print("no image selected");
+        debugPrint("no image selected");
       }
     } catch (e) {
-      print(e.toString());
+      debugPrint(e.toString());
     }
   }
 
