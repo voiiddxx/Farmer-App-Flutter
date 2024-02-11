@@ -1,3 +1,4 @@
+import 'package:farmer/routes/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -55,45 +56,50 @@ class SplashScreen extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Get Started",
-                          style: GoogleFonts.workSans(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 20),
-                        ),
-                        Text(
-                          "Explore now and check conditions",
-                          style: GoogleFonts.workSans(
-                              color: const Color.fromARGB(255, 200, 200, 200),
-                              fontWeight: FontWeight.w300,
-                              fontSize: 15),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      height: h * 0.06,
-                      width: w * 0.15,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(10),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, RoutesNames.homeScreen);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Get Started",
+                            style: GoogleFonts.workSans(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 20),
+                          ),
+                          Text(
+                            "Explore now and check conditions",
+                            style: GoogleFonts.workSans(
+                                color: const Color.fromARGB(255, 200, 200, 200),
+                                fontWeight: FontWeight.w300,
+                                fontSize: 15),
+                          ),
+                        ],
                       ),
-                      child: const Center(
-                        child: Text(
-                          "🍀",
-                          style: TextStyle(fontSize: 20),
+                      Container(
+                        height: h * 0.06,
+                        width: w * 0.15,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                      ),
-                    )
-                  ],
+                        child: const Center(
+                          child: Text(
+                            "🍀",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

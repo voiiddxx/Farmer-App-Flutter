@@ -1,4 +1,5 @@
 import 'package:farmer/routes/route_name.dart';
+import 'package:farmer/view/home/home_screen.dart';
 import 'package:farmer/view/start/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,10 @@ Route<dynamic> onGenreateSettings(RouteSettings settings) {
     case RoutesNames.splashScreen:
       return MaterialPageRoute(builder: (context) {
         return const SplashScreen();
+      });
+    case RoutesNames.homeScreen:
+      return MaterialPageRoute(builder: (context) {
+        return const HomeScreen();
       });
     default:
       return MaterialPageRoute(builder: (context) {

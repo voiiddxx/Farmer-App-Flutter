@@ -1,3 +1,4 @@
+import 'package:farmer/routes/routing.dart';
 import 'package:farmer/view/start/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const SplashScreen(),
+      onGenerateRoute: (settings) => onGenreateSettings(settings),
     );
   }
 }
