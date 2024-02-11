@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings, prefer_const_constructors
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -16,7 +18,7 @@ class ClickCamera extends StatefulWidget {
 }
 
 class _ClickCameraState extends State<ClickCamera> {
-  uploadImageFromCamera() async {
+  uploadImageFromGallery() async {
     try {
       final result = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (result != null) {
@@ -33,8 +35,40 @@ class _ClickCameraState extends State<ClickCamera> {
           },
         );
         if (response.statusCode == 200) {
+          dynamic sendData = jsonDecode(response.body);
+          // ignore: use_build_context_synchronously
           Navigator.pushNamed(context, RoutesNames.resultScreen,
-              arguments: response.body);
+              arguments: sendData);
+        }
+      } else {
+        debugPrint("no image selected");
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  uploadImageFromCamera() async {
+    try {
+      final result = await ImagePicker().pickImage(source: ImageSource.camera);
+      if (result != null) {
+        List<int> imageByte = File(result.path).readAsBytesSync();
+        dynamic imageData = base64Encode(imageByte);
+        debugPrint(imageData);
+        var response = await http.post(
+          Uri.parse(
+              "https://classify.roboflow.com/rice-detection-2-nkcu2/1?api_key=JNuQpEhF9KVKN7FzEXpc"),
+          body: jsonEncode(imageData),
+          headers: <String, String>{
+            "Content-type": "application/json",
+            "Accept": "application/json",
+          },
+        );
+        if (response.statusCode == 200) {
+          dynamic sendData = jsonDecode(response.body);
+          // ignore: use_build_context_synchronously
+          Navigator.pushNamed(context, RoutesNames.resultScreen,
+              arguments: sendData);
         }
       } else {
         debugPrint("no image selected");
@@ -81,7 +115,7 @@ class _ClickCameraState extends State<ClickCamera> {
             style: GoogleFonts.workSans(
                 color: Colors.black, fontSize: 20, fontWeight: FontWeight.w300),
           ),
-          Expanded(child: SizedBox()),
+          const Expanded(child: SizedBox()),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: SizedBox(
@@ -89,7 +123,7 @@ class _ClickCameraState extends State<ClickCamera> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  uploadImageFromCamera();
+                  uploadImageFromGallery();
                 },
                 // ignore: sort_child_properties_last
                 child: Text(
@@ -105,13 +139,20 @@ class _ClickCameraState extends State<ClickCamera> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          Text(
-            "Click from Camera",
-            style: GoogleFonts.inter(
-                color: Colors.green, fontWeight: FontWeight.w400, fontSize: 15),
+          InkWell(
+            onTap: () {
+              uploadImageFromCamera();
+            },
+            child: Text(
+              "Click from Camera",
+              style: GoogleFonts.inter(
+                  color: Colors.green,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 15),
+            ),
           ),
           const SizedBox(
             height: 40,
