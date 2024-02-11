@@ -1,5 +1,6 @@
 import 'package:farmer/routes/route_name.dart';
 import 'package:farmer/view/home/home_screen.dart';
+import 'package:farmer/view/images/upload_image.dart';
 import 'package:farmer/view/start/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,11 @@ Route<dynamic> onGenreateSettings(RouteSettings settings) {
     case RoutesNames.homeScreen:
       return MaterialPageRoute(builder: (context) {
         return const HomeScreen();
+      });
+    case RoutesNames.imageUploadScreen:
+      return MaterialPageRoute(builder: (context) {
+        dynamic data = settings.arguments as dynamic;
+        return ClickCamera(cropType: data);
       });
     default:
       return MaterialPageRoute(builder: (context) {
