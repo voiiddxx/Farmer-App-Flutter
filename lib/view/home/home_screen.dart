@@ -21,17 +21,21 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           Container(
-            height: h * 0.3,
+            height: h * 0.26,
             width: double.infinity,
-            color: const Color.fromARGB(255, 174, 255, 178),
+            decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 174, 255, 178),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30))),
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   height: h * 0.15,
                   width: double.infinity,
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(left: 25, right: 20, top: 25),
+                        const EdgeInsets.only(left: 30, right: 30, top: 25),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -72,6 +76,44 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                Container(
+                  height: h * 0.065,
+                  width: w * 0.9,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.search,
+                              color: Color.fromARGB(255, 72, 72, 72),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "Search Crops",
+                              style: GoogleFonts.workSans(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 15),
+                            ),
+                          ],
+                        ),
+                        const Icon(
+                          Icons.mic,
+                          color: Color.fromARGB(255, 29, 29, 29),
+                        )
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
           )
